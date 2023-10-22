@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 
 function Login() {
   return (
-    <div className="h-screen ">
+    <div className="h-screen bg-">
       <Navbar />
       <div className="flex items-center justify-center h-screen ">
         <div className="max-w-screen-md p-8 bg-white shadow-md rounded-lg">
@@ -13,8 +13,8 @@ function Login() {
 
           <input
             type="text"
-            placeholder="Username"
-            className="w-full py-2 px-3 mb-6 border bg-blue-500 rounded"
+            placeholder="E-mail"
+            className="w-full py-2 px-3 mb-6 border rounded"
             required
           />
           <input
@@ -25,11 +25,11 @@ function Login() {
           />
 
           <div className="flex justify-between mb-6">
-            <button className="py-2 px-4 bg-green-500 hover:bg-green-600 text-white rounded">
+            <button className="py-2 px-4 bg-red-800 hover:bg-yellow-300 text-white rounded">
               Log In
             </button>
-            <button className="py-2 px-4 bg-green-500 hover:bg-green-600 text-white rounded">
-              Sign Up
+            <button className="py-2 px-4 bg-red-800 hover:bg-yellow-300 text-white rounded">
+              Sign Up 
             </button>
           </div>
         </div>
