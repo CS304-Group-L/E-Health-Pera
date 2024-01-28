@@ -1,32 +1,43 @@
 import React from "react";
-import Home from "./Pages/Home";
-import Login from "./Pages/Login";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import HealthForm from "./Pages/Healthform";
-import Personinfo from "./Pages/Personinfo";
-import Services from "./Pages/Services";
-import Contactus from "./Pages/Contactus";
-import Aboutus from "./Pages/About";
+import {BrowserRouter, Routes, Route } from 'react-router-dom';
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-  },
+import Home from "./components/Home/Home";
+import AdminPannel from "./components/AdminPanel/AdminPannel";
+import About from "./components/Home/About";
+import Contactus from "./components/Home/Contactus";
+import Login from "./components/Home/Login";
 
-  { path: "/Login", element: <Login /> },
+import PharmacyMain from "./components/PharmacyManager/PharmacyMain";
+import HealthReportList from "./components/PharmacyManager/HealthReportList";
+import AddHealthReport from "./components/PharmacyManager/AddHealthReport";
 
-  { path: "/Healthform", element: <HealthForm /> },
 
-  { path: "/Personinfo", element: <Personinfo /> },
-
-  { path: "/Services", element: <Services /> },
-
-  { path: "/Contactus", element: <Contactus /> },
-
-  { path: "/About", element: <Aboutus /> },
-]);
-
-export default function App() {
-  return <RouterProvider router={router} />;
+function App() {
+  
+  return (
+    <div className="App">
+      <BrowserRouter>
+       <Routes>
+        
+        
+          <Route exact path = "/" element = {<Home/>}/>
+             
+        
+          <Route path='/about' element={<About/>}/>
+          <Route path='/contactus' element={<Contactus/>}/>
+          <Route path='/login' element={<Login/>}/>
+        
+          <Route path='/adminPannel' element={<AdminPannel/>}/>
+          <Route path='/adminPannel/PharmacyManager/PharmacyMain' element={<PharmacyMain/>}/>
+          <Route path='/adminPannel/PharmacyManager/healthrecords' element={<HealthReportList/>}/>
+          <Route path='/adminPannel/PharmacyManager/add-healthrecord' element={<AddHealthReport/>}/>
+          <Route path='/adminPannel/PharmacyManager/edit-healthrecord/:id' element={<AddHealthReport/>}/>
+              
+       
+       </Routes>
+      </BrowserRouter>
+    </div>
+  );
 }
+
+export default App;

@@ -1,12 +1,12 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
+//import Navbar from "./Navbar/Navbar"
+
 
 function HealthForm() {
   return (
     <div>
-      <div>
-        <Navbar/>
-      </div>
+      
+      
       <div className="bg-gray-100 p-8 text-2xl font-bold text-center mb-6">
       <div>Health Center University of Peradeniya</div>
       <div className="text-base font-normal">Student registation form</div>

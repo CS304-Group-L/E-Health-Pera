@@ -1,12 +1,13 @@
 import React from "react";
-import Navbar from "../components/Navbar";
+import Navbar from "../Home/Navbar";
 
 function About() {
   return (
     <div>
-      <div>
-        <Navbar/>
-      </div>
+        <div>
+           <Navbar/>
+        </div>
+        
         <div className="bg-gray-100 p-8 text-2xl font-bold text-center mb-6">
         <div>Health Center - University of Peradeniya</div>
         <div className="text-base font-normal">ABOUT US </div>
@@ -23,7 +24,7 @@ function About() {
           Its staff comprising the Chief Medical Officer (Head of Department), four medical officers and other 
           supportive staff are dedicated to cater to the health care needs of the University community including 
           the non-resident students and employees</p>
-<         /div>
+</div>
 <div className="font-bold pt-10">
   <p>An Outpatient Treatment Department (OPD)</p>
 </div>

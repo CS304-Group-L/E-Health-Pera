@@ -1,8 +1,9 @@
 import React from 'react'
 import {Link} from "react-router-dom";
-import logo from "../Assets/University-Helth-Center-logo-with-name.png";
+import logo from "../../Assets/University-Helth-Center-logo-with-name.png";
 
-const Navbar = () => {
+
+function Navbar() {
   return (
     <nav className=" flex justify-between items-center p-[15px]  bg-red-800">
         
@@ -14,16 +15,16 @@ const Navbar = () => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/Services">Services</Link>
+              <Link to="/adminPannel">Services</Link>
             </li>
             <li>
-              <Link to="/About">About</Link>
+              <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/Contactus">Contact Us</Link>
+              <Link to="/contactus">Contact Us</Link>
             </li>
             <li>
-              <Link to="/Login">Login</Link>
+              <Link to="/login">Login</Link>
             </li>
           </ul>
           
@@ -33,4 +34,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar;

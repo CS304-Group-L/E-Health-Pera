@@ -1,13 +1,12 @@
 import React from "react";
-import Navbar from "../components/Navbar";
+//import Navbar from "./Navbar/Navbar"
+
 
 function Personinfo() {
   return (
 
     <div>
-        <div>
-            <Navbar />
-        </div>
+        
 
         <div class="box-border h-36 w-96 p-4 border-4 container mx-auto">
         <div className ="alig">Student Name :</div>

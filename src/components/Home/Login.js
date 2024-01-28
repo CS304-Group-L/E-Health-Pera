@@ -1,10 +1,14 @@
 import React from "react";
-import Navbar from "../components/Navbar";
+import Navbar from "../Home/Navbar";
+
 
 function Login() {
   return (
     <div className="h-screen bg-">
-      <Navbar />
+      <div>
+           <Navbar/>
+        </div>
+      
       <div className="flex items-center justify-center h-screen ">
         <div className="max-w-screen-md p-8 bg-white shadow-md rounded-lg">
           <h1 className="text-2xl font-bold text-center mb-6 text-blue-900 ">Login</h1>

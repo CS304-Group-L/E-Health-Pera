@@ -1,12 +1,14 @@
 import React from "react";
-import Navbar from "../components/Navbar";
+import Navbar from "../Home/Navbar";
+
 
 function Contactus() {
   return (
     <div>
-      <div>
-        <Navbar/>
-      </div>
+       <div>
+           <Navbar/>
+        </div>
+      
       <div className="bg-gray-100 p-8 text-2xl font-bold text-center mb-6">
       <div>Health Center - University of Peradeniya</div>
       <div className="text-base font-normal">Contact Details</div>

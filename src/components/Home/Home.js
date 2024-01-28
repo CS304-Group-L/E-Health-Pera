@@ -1,12 +1,12 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import photo from "../Assets/photo.jpg";
+import Navbar from "./Navbar"
+import photo from "../../Assets/photo.jpg";
 
 export default function Home() {
   return (
     <div>
       <div>
-        <Navbar />
+         <Navbar/>
       </div>
 
       <div className="bg-white rounded overflow-hidden pt-5 "></div>
