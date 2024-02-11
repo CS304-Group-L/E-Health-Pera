@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import HealthRecordService from '../../services/HealthRecordService';
+import LabTestService from '../../services/LabTestService';
 import { Link } from 'react-router-dom';
 import Navbar from "../Home/Navbar";
 
-function HealthReportList() {
-    const [healthrecords, setHealthRecords] = useState([]);
+function LabTestList() {
+    const [labtests, setLabTests] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
@@ -12,17 +12,17 @@ function HealthReportList() {
     }, []);
 
     const getAllRecords = () => {
-        HealthRecordService.getAllRecords()
+        LabTestService.getAllRecords()
             .then((response) => {
-                setHealthRecords(response.data);
+                setLabTests(response.data);
             })
             .catch((error) => {
                 console.log(error);
             });
     };
 
-    const deleteHealthRecord = (recordId) => {
-        HealthRecordService.deleteHealthRecord(recordId)
+    const deleteLabTest = (recordId) => {
+        LabTestService.deleteLabTest(recordId)
             .then(() => {
                 getAllRecords();
             })
@@ -31,7 +31,7 @@ function HealthReportList() {
             });
     };
 
-    const filteredRecords = healthrecords.filter((record) =>
+    const filteredRecords = labtests.filter((record) =>
         record.enrollmentNo.includes(searchTerm)
     );
 
@@ -41,7 +41,7 @@ function HealthReportList() {
                 <Navbar />
             </div>
             <div className="bg-gray-100 p-8 text-2xl font-bold text-center mb-6">
-                <div>Pharmacy - Health Records List</div>
+                <div>Laboratory - Lab Tests List</div>
             </div>
             <br />
             <br />
@@ -57,7 +57,7 @@ function HealthReportList() {
                     </form>
                 </center>
 
-                <Link to="/adminPannel/PharmacyManager/new-healthrecord" className="btn btn-primary mb-2">
+                <Link to="/adminPannel/PharmacyManager/new-labrecord" className="btn btn-primary mb-2">
                     <button style={{ marginLeft: '10px', backgroundColor: '#E4A11B', padding: 10 }}>Add New Record</button>
                 </Link>
 
@@ -70,19 +70,21 @@ function HealthReportList() {
                                         <tr>
                                             <th scope="col" className="px-6 py-4">ID</th>
                                             <th scope="col" className="px-6 py-4">Enrollment No</th>
-                                            <th scope="col" className="px-6 py-4">Doctor Report</th>
+                                            <th scope="col" className="px-6 py-4">Test Name</th>
+                                            <th scope="col" className="px-6 py-4">Doctor Name</th>
                                             <th scope="col" className="px-6 py-4">Update/Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {filteredRecords.map((healthrecord) => (
-                                            <tr key={healthrecord.id} className="border-b font-medium dark:border-neutral-500">
-                                                <td className="whitespace-nowrap px-6 py-4 font-medium">{healthrecord.id}</td>
-                                                <td className="whitespace-nowrap px-6 py-4 font-medium">{healthrecord.enrollmentNo}</td>
-                                                <td className="whitespace-nowrap px-6 py-4 font-medium">{healthrecord.doctorReport}</td>
+                                        {filteredRecords.map((labtest) => (
+                                            <tr key={labtest.id} className="border-b font-medium dark:border-neutral-500">
+                                                <td className="whitespace-nowrap px-6 py-4 font-medium">{labtest.id}</td>
+                                                <td className="whitespace-nowrap px-6 py-4 font-medium">{labtest.enrollmentNo}</td>
+                                                <td className="whitespace-nowrap px-6 py-4 font-medium">{labtest.testName}</td>
+                                                <td className="whitespace-nowrap px-6 py-4 font-medium">{labtest.doctorName}</td>
                                                 <td className="whitespace-nowrap px-6 py-4 font-medium">
-                                                    <Link className="btn btn-info" to={`/adminPannel/PharmacyManager/edit-healthrecord/${healthrecord.id}`}><button style={{ marginLeft: '10px', backgroundColor: '#54B4D3', padding: 10 }}>Update</button></Link>
-                                                    <button className="btn btn-danger" onClick={() => deleteHealthRecord(healthrecord.id)} style={{ marginLeft: '10px', backgroundColor: '#DC4C64', padding: 10 }}>Delete</button>
+                                                    <Link className="btn btn-info" to={`/adminPannel/PharmacyManager/edit-labrecord/${labtest.id}`}><button style={{ marginLeft: '10px', backgroundColor: '#54B4D3', padding: 10 }}>Update</button></Link>
+                                                    <button className="btn btn-danger" onClick={() => deleteLabTest(labtest.id)} style={{ marginLeft: '10px', backgroundColor: '#DC4C64', padding: 10 }}>Delete</button>
                                                 </td>
                                             </tr>
                                         ))}
@@ -97,4 +99,4 @@ function HealthReportList() {
     );
 }
 
-export default HealthReportList;
+export default LabTestList;

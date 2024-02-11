@@ -8,9 +8,9 @@ import Contactus from "./components/Home/Contactus";
 import Login from "./components/Home/Login";
 
 import PharmacyMain from "./components/PharmacyManager/PharmacyMain";
-import HealthReportList from "./components/PharmacyManager/HealthReportList";
-import UpdateHealthReport from "./components/PharmacyManager/UpdateHealthRecordForm";
-import AddNewHealthReport from "./components/PharmacyManager/AddNewHealthReport";
+import LabTestList from "./components/PharmacyManager/LabTestList";
+import UpdateLabTestForm from "./components/PharmacyManager/UpdateLabTestForm";
+import AddNewLabTest from "./components/PharmacyManager/AddNewLabTest";
 
 function App() {
   
@@ -29,10 +29,10 @@ function App() {
         
           <Route path='/adminPannel' element={<AdminPannel/>}/>
           <Route path='/adminPannel/PharmacyManager/PharmacyMain' element={<PharmacyMain/>}/>
-          <Route path='/adminPannel/PharmacyManager/healthrecords' element={<HealthReportList/>}/>
           
-          <Route path='/adminPannel/PharmacyManager/new-healthrecord' element={<AddNewHealthReport/>}/>
-          <Route path='/adminPannel/PharmacyManager/edit-healthrecord/:id' element={<UpdateHealthReport/>}/>
+          <Route path='/adminPannel/PharmacyManager/labtests' element={<LabTestList/>}/>
+          <Route path='/adminPannel/PharmacyManager/new-labrecord' element={<AddNewLabTest/>}/>
+          <Route path='/adminPannel/PharmacyManager/edit-labrecord/:id' element={<UpdateLabTestForm/>}/>
               
        
        </Routes>

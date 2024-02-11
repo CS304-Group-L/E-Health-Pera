@@ -43,7 +43,7 @@ function AdminPannel() {
 <div className="relative mb-12 px-3 lg:mb-0">
  <div className="mb-2 flex justify-center">
    <span className="text-primary">
-         <Link to='/adminPannel/PharmacyManager/healthrecords'  className="link1" >
+         <Link to='/adminPannel/PharmacyManager/medicalreports'  className="link1" >
              <>
                {<img src={MedicalReports} alt="Health Records" style={{backgroundColor : 'white',width: 300,height: 200}}/> }
              </>
@@ -58,7 +58,7 @@ function AdminPannel() {
 <div className="relative mb-12 px-3 lg:mb-0">
  <div className="mb-2 flex justify-center">
    <span className="text-primary">
-          <Link to='/adminPannel/PharmacyManager/healthrecords'  className="link1" >
+          <Link to='/adminPannel/PharmacyManager/medicine'  className="link1" >
               <>
                   {<img src={Medicine} alt="Health Records" style={{backgroundColor : 'white',width: 300,height: 200}}/> }
               </>
@@ -72,7 +72,7 @@ function AdminPannel() {
 <div className="relative mb-12 px-3 lg:mb-0">
  <div className="mb-2 flex justify-center">
    <span className="text-primary">
-           <Link to='/adminPannel/PharmacyManager/healthrecords'  className="link1" >
+           <Link to='/adminPannel/PharmacyManager/labtests'  className="link1" >
                  <>
                    {<img src={LaboratoryTest} alt="Health Records" style={{backgroundColor : 'white',width: 300,height: 200}}/> }
                  </>

@@ -1,31 +1,32 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import HealthRecordService from '../../services/HealthRecordService.js';
-import Navbar from "../Home/Navbar";
+import LabTestService from '../../services/LabTestService.js';
+import Navbar from "../Home/Navbar.js";
 
-function AddNewHealthReport() {
+function AddNewLabTest() {
     const [enrollmentNo, setEnrollmentNo] = useState('');
-    const [doctorReport, setDoctorReport] = useState('');
+    const [testName, settestName] = useState('');
+    const [doctorName, setdoctorName] = useState('');
     const history = useNavigate();
 
-    const saveHealthRecord = (e) => {
+    const saveLabTest = (e) => {
         e.preventDefault();
 
         // Check if the form is valid before submitting
-        if (enrollmentNo.trim() === '' || doctorReport.trim() === '') {
+        if (enrollmentNo.trim() === '' || testName.trim() === '' || doctorName.trim() === '') {
             alert('Please fill out all required fields.');
             return;
         }
 
-        const healthRecord = { enrollmentNo, doctorReport };
+        const labTest = { enrollmentNo, testName, doctorName };
 
-        HealthRecordService.createHealthRecord(healthRecord)
+        LabTestService.createLabTest(labTest)
             .then((response) => {
                 console.log(response.data);
                 // Display alert message upon successful addition
-                alert('Health record successfully added!');
+                alert('Lab test successfully added!');
                 // Navigate to HealthReportList.js after clicking "OK" in the alert message
-                history('/HealthReportList');
+                history('/LabTestList');
             })
             .catch(error => {
                 console.log(error);
@@ -36,7 +37,7 @@ function AddNewHealthReport() {
         <div>
             <Navbar />
             <div className="bg-gray-100 p-8 text-2xl font-bold text-center mb-6">
-                <div>Health Records - Add A Health Record</div>
+                <div> Lab Tests - Add A Lab Test</div>
             </div>
             <div className="container" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
                 <div className="flex items-center justify-center">
@@ -58,19 +59,31 @@ function AddNewHealthReport() {
                                         />
                                     </div>
                                     <div className="form-group mb-2">
-                                        <label className="form-label"> Doctor Report :</label>
+                                        <label className="form-label"> Test Name :</label>
                                         <input
                                             type="text"
-                                            placeholder="Doctor Report"
-                                            name="doctorReport"
+                                            placeholder="Test Name"
+                                            name="testName"
                                             className="w-full py-2 px-3 mb-6 border rounded"
-                                            value={doctorReport}
-                                            onChange={(e) => setDoctorReport(e.target.value)}
+                                            value={testName}
+                                            onChange={(e) => settestName(e.target.value)}
+                                            required // Add required attribute for validation
+                                        />
+                                    </div>
+                                    <div className="form-group mb-2">
+                                        <label className="form-label"> Doctor Name :</label>
+                                        <input
+                                            type="text"
+                                            placeholder="Doctor Name"
+                                            name="doctorName"
+                                            className="w-full py-2 px-3 mb-6 border rounded"
+                                            value={doctorName}
+                                            onChange={(e) => setdoctorName(e.target.value)}
                                             required // Add required attribute for validation
                                         />
                                     </div>
                                     <div className="flex justify-between mb-6">
-                                        <button className="py-2 px-4 bg-red-800 hover:bg-yellow-300 text-white rounded" onClick={(e) => saveHealthRecord(e)}>Submit</button>
+                                        <button className="py-2 px-4 bg-red-800 hover:bg-yellow-300 text-white rounded" onClick={(e) => saveLabTest(e)}>Submit</button>
                                         <Link to="/healthrecords">
                                             <button className="py-2 px-4 bg-red-800 hover:bg-yellow-300 text-white rounded">Cancel</button>
                                         </Link>
@@ -85,4 +98,4 @@ function AddNewHealthReport() {
     );
 }
 
-export default AddNewHealthReport;
+export default AddNewLabTest;

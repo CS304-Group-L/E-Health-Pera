@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import HealthRecordService from '../../services/HealthRecordService.js';
-import Navbar from "../Home/Navbar";
+import LabTestService from '../../services/LabTestService.js';
+import Navbar from "../Home/Navbar.js";
 
-function UpdateHealthRecordForm() {
+function UpdateLabTestForm() {
     const [enrollmentNo, setEnrollmentNo] = useState('');
-    const [doctorReport, setDoctorReport] = useState('');
+    const [testName, settestName] = useState('');
+    const [doctorName, setdoctorName] = useState('');
     const history = useNavigate();
     const { id } = useParams();
 
     useEffect(() => {
         if (id) {
-            HealthRecordService.getHealthRecordById(id)
+            LabTestService.getLabTestById(id)
                 .then((response) => {
                     setEnrollmentNo(response.data.enrollmentNo);
-                    setDoctorReport(response.data.doctorReport);
+                    settestName(response.data.testName);
+                    setdoctorName(response.data.doctorName);
                 })
                 .catch(error => {
                     console.log(error);
@@ -22,16 +24,16 @@ function UpdateHealthRecordForm() {
         }
     }, [id]);
 
-    const updateHealthRecord = (e) => {
+    const updateLabTest = (e) => {
         e.preventDefault();
 
-        const healthrecord = { enrollmentNo, doctorReport };
+        const labtest = { enrollmentNo, testName, doctorName };
 
-        HealthRecordService.updateHealthRecord(id, healthrecord)
+        LabTestService.updateLabTest(id, labtest)
             .then((response) => {
                 console.log(response.data);
-                alert('Health record successfully updated!');
-                history('/HealthReportList.js');
+                alert('Lab Test successfully updated!');
+                history('/LabTestList.js');
             })
             .catch(error => {
                 console.log(error);
@@ -42,7 +44,7 @@ function UpdateHealthRecordForm() {
         <div>
             <Navbar />
             <div className="bg-gray-100 p-8 text-2xl font-bold text-center mb-6">
-                <div>Health Records - Update A Health Record</div>
+                <div>Lab Tests - Update A Lab Test</div>
             </div>
             <div className="container" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
                 <div>
@@ -62,18 +64,29 @@ function UpdateHealthRecordForm() {
                                     />
                                 </div>
                                 <div className="form-group mb-2">
-                                    <label className="form-label"> Doctor Report :</label>
+                                    <label className="form-label"> Test Name :</label>
                                     <input
                                         type="text"
-                                        placeholder="Doctor Report"
-                                        name="doctorReport"
+                                        placeholder="Test Name"
+                                        name="testName"
                                         className="w-full py-2 px-3 mb-6 border rounded"
-                                        value={doctorReport}
-                                        onChange={(e) => setDoctorReport(e.target.value)}
+                                        value={testName}
+                                        onChange={(e) => settestName(e.target.value)}
+                                    />
+                                </div>
+                                <div className="form-group mb-2">
+                                    <label className="form-label"> Doctor Name :</label>
+                                    <input
+                                        type="text"
+                                        placeholder="Doctor Name"
+                                        name="doctorName"
+                                        className="w-full py-2 px-3 mb-6 border rounded"
+                                        value={doctorName}
+                                        onChange={(e) => setdoctorName(e.target.value)}
                                     />
                                 </div>
                                 <div className="flex justify-between mb-6">
-                                    <button className="py-2 px-4 bg-red-800 hover:bg-yellow-300 text-white rounded" onClick={(e) => updateHealthRecord(e)}>Submit</button>
+                                    <button className="py-2 px-4 bg-red-800 hover:bg-yellow-300 text-white rounded" onClick={(e) => updateLabTest(e)}>Submit</button>
                                 </div>
                             </form>
                         </div>
@@ -84,4 +97,4 @@ function UpdateHealthRecordForm() {
     );
 }
 
-export default UpdateHealthRecordForm;
+export default UpdateLabTestForm;
