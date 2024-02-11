@@ -17,7 +17,7 @@ function PharmacyMain() {
            </div>
 
         <div className="bg-gray-100 p-8 text-2xl font-bold text-center mb-6">
-            <div>Health Center - Pharmacy</div>
+            <div>Health Center - Services</div>
         </div>
   
        

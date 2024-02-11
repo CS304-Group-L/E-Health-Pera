@@ -9,8 +9,8 @@ import Login from "./components/Home/Login";
 
 import PharmacyMain from "./components/PharmacyManager/PharmacyMain";
 import HealthReportList from "./components/PharmacyManager/HealthReportList";
-import AddHealthReport from "./components/PharmacyManager/AddHealthReport";
-
+import UpdateHealthReport from "./components/PharmacyManager/UpdateHealthRecordForm";
+import AddNewHealthReport from "./components/PharmacyManager/AddNewHealthReport";
 
 function App() {
   
@@ -30,8 +30,9 @@ function App() {
           <Route path='/adminPannel' element={<AdminPannel/>}/>
           <Route path='/adminPannel/PharmacyManager/PharmacyMain' element={<PharmacyMain/>}/>
           <Route path='/adminPannel/PharmacyManager/healthrecords' element={<HealthReportList/>}/>
-          <Route path='/adminPannel/PharmacyManager/add-healthrecord' element={<AddHealthReport/>}/>
-          <Route path='/adminPannel/PharmacyManager/edit-healthrecord/:id' element={<AddHealthReport/>}/>
+          
+          <Route path='/adminPannel/PharmacyManager/new-healthrecord' element={<AddNewHealthReport/>}/>
+          <Route path='/adminPannel/PharmacyManager/edit-healthrecord/:id' element={<UpdateHealthReport/>}/>
               
        
        </Routes>

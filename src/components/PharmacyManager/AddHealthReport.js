@@ -5,8 +5,8 @@ import Navbar from "../Home/Navbar";
 
 const AddHealthReport = () => {
 
-    const [enrollmentNo, setenrollmentNo] = useState('')
-    const [doctorReport, setdoctorReport] = useState('')
+    const [enrollmentNo, setenrollmentNo] = useState('');
+    const [doctorReport, setdoctorReport] = useState('');
     const history = useNavigate();
     const {id} = useParams();
 
@@ -112,7 +112,7 @@ const AddHealthReport = () => {
                                   </Link>
                                 </div>
                             </form>
-
+                           
                         </div>
                     </div>
                 </div>
